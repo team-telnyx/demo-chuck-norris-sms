@@ -779,6 +779,13 @@ rest.get('/chuck-norris/cron-stop', function (req, res) {
 })
 
 
+// GET - Stop App: https://<webhook_domain>:8081/chuck-norris/stop
+
+rest.get('/chuck-norris/stop', function (req, res) {
+    console.log("Terminating Chuck Norris Demo...");
+    process.exit(1)
+})
+
 
 // ================================================ Start Application   ================================================
 
