@@ -1,0 +1,13 @@
+{
+    "telnyx_api_auth_v2": "YOUR_TELNYX_API_V2_GOES_HERE",
+    "g_telnyx_app_users_db": "telnyx-chucknorris-users.json",
+    "voice": {
+        "tts_voice": "female",
+        "tts_language": "en-US",
+        "from_number": "YOUR_TELNYX_NUMBER_GOES_HERE",
+        "telnyx_connection_id": "YOUR_TELNYX_CONNECTION_ID_GOES_HERE"
+    },
+    "sms": {
+        "from_number": "YOUR_TELNYX_NUMBER_GOES_HERE"
+    }
+}
