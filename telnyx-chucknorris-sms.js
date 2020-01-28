@@ -106,9 +106,11 @@ function call_control_answer_call(f_telnyx_api_auth_v2, f_call_control_id, f_cli
             return console.log(err);
         }
 
+        console.log("[%s] LOG - Command Executed [%s]", get_timestamp(), l_cc_action);
+
         if (g_debug)
-            console.log("[%s] DEBUG - Command Executed [%s]", get_timestamp(), l_cc_action);
-        console.log(body);
+            console.log(body);
+
     });
 }
 
@@ -137,9 +139,11 @@ function call_control_hangup(f_telnyx_api_auth_v2, f_call_control_id) {
         if (err) {
             return console.log(err);
         }
+
+        console.log("[%s] LOG - Command Executed [%s]", get_timestamp(), l_cc_action);
+
         if (g_debug)
-            console.log("[%s] DEBUG - Command Executed [%s]", get_timestamp(), l_cc_action);
-        console.log(body);
+            console.log(body);
     });
 }
 
@@ -168,9 +172,11 @@ function call_control_dial(f_telnyx_api_auth_v2, f_dest, f_from, f_connection_id
         if (err) {
             return console.log(err);
         }
+
+        console.log("[%s] LOG - Command Executed [%s]", get_timestamp(), l_cc_action);
+
         if (g_debug)
-            console.log("[%s] DEBUG - Command Executed [%s]", get_timestamp(), l_cc_action);
-        console.log(body);
+            console.log(body);
 
     });
 }
@@ -180,13 +186,13 @@ function call_control_dial(f_telnyx_api_auth_v2, f_dest, f_from, f_connection_id
 // TELNYX CALL CONTROL API - SPEAK
 function call_control_speak(f_telnyx_api_auth_v2, f_call_control_id, f_tts_text) {
 
-    var cc_action = 'speak'
+    var l_cc_action = 'speak'
 
     var options = {
         url: 'https://api.telnyx.com/v2/calls/' +
             f_call_control_id +
             '/actions/' +
-            cc_action,
+            l_cc_action,
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -203,9 +209,11 @@ function call_control_speak(f_telnyx_api_auth_v2, f_call_control_id, f_tts_text)
         if (err) {
             return console.log(err);
         }
+
+        console.log("[%s] LOG - Command Executed [%s]", get_timestamp(), l_cc_action);
+
         if (g_debug)
-            console.log("[%s] DEBUG - Command Executed [%s]", get_timestamp(), cc_action);
-        console.log(body);
+            console.log(body);
     });
 }
 
@@ -245,10 +253,10 @@ function send_sms(f_telnyx_api_auth_v2, f_dest, f_orig, f_message, f_callback) {
             return console.log(err);
         }
 
-        if (g_debug) {
-            console.log("[%s] DEBUG - Command Executed [%s]", get_timestamp(), l_cc_action);
+        console.log("[%s] LOG - Command Executed [%s]", get_timestamp(), l_cc_action);
+
+        if (g_debug)
             console.log(body);
-        }
 
         if (body.data && body.data.to[0].status == 'queued') {
             if (g_debug)
@@ -785,6 +793,14 @@ rest.get('/chuck-norris/stop', function (req, res) {
     console.log("Terminating Chuck Norris Demo...");
     process.exit(1)
 })
+
+// GET - Live Check: https://<webhook_domain>:8081/chuck-norris/areyouthere
+
+
+rest.get('/chuck-norris/areyouthere', (req, res) => {
+    res.send(`<h1>Yup, I'm here!</h1>`);
+})
+
 
 
 // ================================================ Start Application   ================================================
