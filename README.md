@@ -11,14 +11,8 @@ This application shows you to:
 ---
 
 - [Usage](#usage)
-- [Prerequisites](#prerequisites)
-- [Send an SMS](#send-an-sms)
-- [Generating the Token](#generating-the-token)
-- [Temporarily Storing the Tokens](#temporarily-storing-the-tokens)
-- [Requesting Tokens](#requesting-tokens)
-- [Lightning-Up the Application](#lightning-up-the-application)
-- [Application Front-End](#application-front-end)
-
+- [Setup Your Application](#setup-your-application)
+- [Run Your Application](#run-your-application)
 
 ---
 
